@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const users = require('./users');
-const { signIn} = require('../controllers/UserController');
+const { signIn,signUp} = require('../controllers/AuthController');
 
 router.get('/hello', (req, res) => {
   const name = req.query.name;
@@ -8,10 +8,7 @@ router.get('/hello', (req, res) => {
 });
 
 router.post('/signin',signIn);
-
-router.post('/signup', (req, res) => {
-
-});
+router.post('/signup',signUp);
 router.use('/users',users);
 
 module.exports = router;
