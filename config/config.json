@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
+    "username": "mac",
     "password": null,
-    "database": "database_development",
+    "database": "rest_api",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "postgres"
   },
   "test": {
     "username": "root",
