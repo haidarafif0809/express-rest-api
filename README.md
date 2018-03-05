@@ -21,7 +21,7 @@ List of routes:
 List of filter routes:
 
 | Route | HTTP     | Descriptions |
-| :------------- | :------------- |
+| :------------- | :------------- |:------------- |
 | `/api/users?name="{name}"`| GET | Get `{name}` match in users |
 | `/api/users?name="{na}"`| GET | Get `{na}` like in users |
 ---
