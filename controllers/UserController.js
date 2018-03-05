@@ -1,17 +1,39 @@
 const models = require('../models');
+const Op = require('sequelize').Op;
 
 module.exports = {
   getUsers: (req,res) => {
-    models.User.all().then((users) => {
-      res.status(200).json({
-        message: "Get All User",
-        users
+    if (req.query.name) {
+      let name = req.query.name;
+      models.User.all({
+        where: {
+          name: {
+            [Op.iLike] : `%${req.query.name}%`
+          }
+        }
+      }).then((users) => {
+        res.status(200).json({
+          message: `Get All User where name like ${req.query.name} `,
+          users
+        });
+      }).catch((err) => {
+        res.status(500).json({
+          message: err.message
+        });
       });
-    }).catch((err) => {
-      res.status(500).json({
-        message: err.message
+
+    } else {
+      models.User.all().then((users) => {
+        res.status(200).json({
+          message: "Get All User",
+          users
+        });
+      }).catch((err) => {
+        res.status(500).json({
+          message: err.message
+        });
       });
-    });
+    }
   },
   getUser: (req, res) => {
     const id = req.params.id;
