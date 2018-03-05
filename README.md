@@ -18,6 +18,7 @@ List of routes:
 | `/api/users/:id`| DELETE  | DELETE a user                   |
 | `/api/users/:id`| PUT     | Update a user with new info     |
 | `/api/users/:id`| PATCH   | Update a user with specific info|
+
 List of filter routes:
 
 | Route | HTTP     | Descriptions |
